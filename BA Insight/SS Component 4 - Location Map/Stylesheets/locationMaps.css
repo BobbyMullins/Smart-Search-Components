@@ -1,0 +1,7 @@
+/* Map Sizing */
+
+#map {
+        width: 25%;
+        height: 250px;  
+        background-color: grey;
+      }
