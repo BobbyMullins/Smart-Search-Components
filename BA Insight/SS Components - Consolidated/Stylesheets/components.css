@@ -1,0 +1,26 @@
+/* D3 Graph Styling */
+
+svg {
+  display: block;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text{
+    font: Times;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Map Sizing */
+
+#map {
+        width: 25%;
+        height: 250px;  
+        background-color: grey;
+      }
