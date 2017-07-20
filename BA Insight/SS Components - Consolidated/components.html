@@ -18,18 +18,19 @@
     
     <script src='Scripts/components.js' type="text/javascript"></script>
     
+    <!-- Gauge Function   -->
     <script>gaugeInit('safetyGauge', 97)</script>
     
     
-    <!-- Graphs HTML -->
+    <!-- Graph HTML -->
     <h2>MTBR & MTBM</h2>
     
     <div id='chart'></div>
     
-    <!-- Example function for Chart -->
-    <!-- initGraph("#graph", [100,145,200], ["US", "UK", "Mexico"]) -->
+    <!-- Graph Function -->
+     <script>graphInit('#chart', [100, 125, 320, 440, 500, 240], [0, 1, 2, 3, 4, 5])</script>
     
-    <!-- Location Maps -->
+    <!-- Map HTML -->
     <h2>Location Map</h2>
     <div id='map'></div>
     
@@ -44,6 +45,8 @@
     <script 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYv1ziojjixvWtUAeprlGCzJzowPE0l4I">
     </script>
+    
+    <!-- Map Function -->
     
     <script>initMap('map', 15.397, 150.644)</script>
     
