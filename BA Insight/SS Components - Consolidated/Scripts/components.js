@@ -46,113 +46,318 @@ function gaugeInit(mapTarget, mapGauge) {
 /* D3 JS */
 /* ******************************* */
 
+
+//function graphInit(chartLocation, yData, xData) {
+//
+//    var myData = yData; 
+//    var xLabels = xData; 
+//
+//    var margin = {
+//        top: 30, 
+//        right: 30, 
+//        bottom: 40, 
+//        left: 50
+//    }
+//
+//    var height = 250 - margin.top - margin.bottom; 
+//    var width = 250 - margin.right - margin.left; 
+//    //var barWidth = 35; 
+//    //var barOffset = 5; 
+//
+//    var yScale = d3.scale.linear()
+//        .domain([0, d3.max(myData)])
+//        .range([0, height]); 
+//
+//    //var xScale = d3.scale.ordinal()
+//    //    .domain(d3.range(0, myData.length))
+//    //    .rangeBands([0, width])
+//
+//    var xScale = d3.scale.ordinal()
+//        .domain(d3.range(0, xLabels.length))
+//        .rangeBands([0, width], .1)
+//
+//    d3.select(chartLocation).append('svg')
+//        .attr('width', width + margin.right + margin.left)
+//        .attr('height', height + margin.top + margin.bottom)
+//        .append('g')
+//        .attr('transform', 'translate('+margin.left+','+margin.top+')')
+//        .style('background', 'f4f4f4')
+//        .selectAll('rect')
+//            .data(myData)
+//            .enter().append('rect')
+//                .style('fill', 'lightgreen')
+//                .attr('width', xScale.rangeBand())
+//                .attr('height', function(d){
+//                    return yScale(d); 
+//                })
+//                .attr('x', function(d, i){
+//                    return xScale(i);  
+//                })
+//                .attr('y', function(d){
+//                    return height - yScale(d); 
+//                })
+//
+//    var vScale = d3.scale.linear()
+//        .domain([0, d3.max(myData)])
+//        .range([height, 0]); 
+//
+//    //var hScale = d3.scale.ordinal()
+//    //    .domain(d3.range(0, myData.length))
+//    //    .rangeBands([0, width])
+//    //
+//    var hScale = d3.scale.ordinal()
+//        .domain(d3.range(0, xLabels.length))
+//        .rangeBands([0, width])
+//
+//    // V Axis
+//    var vAxis = d3.svg.axis()
+//        .scale(vScale)
+//        .orient('left')
+//        .ticks(5)
+//        .tickPadding(5)
+//
+//    // V Guide
+//    var vGuide = d3.select('svg')
+//        .append('g')
+//            vAxis(vGuide)
+//            vGuide.attr('transform', 'translate('+margin.left+','+margin.top+')')
+//            vGuide.selectAll('path')
+//                .style('fill', 'none')
+//                .style('stroke', '#000')
+//            vGuide.selectAll('line')
+//                .style('stroke', '#000')
+//
+//    // H Axis
+//    //var hAxis = d3.svg.axis()
+//    //    .scale(hScale)
+//    //    .orient('bottom')
+//    //    .tickValues(hScale.domain().filter(function(d, i){
+//    //        return !(i % (myData.length/6)); 
+//    //    })); 
+//
+//    var hAxis = d3.svg.axis()
+//        .scale(hScale)
+//        .orient('bottom')
+//        .tickValues(hScale.domain().filter(function(d, i){
+//            return !(i % (xLabels.length/6)); 
+//        })); 
+//
+//    // h Guide
+//    var hGuide = d3.select('svg')
+//        .append('g')
+//            hAxis(hGuide)
+//            hGuide.attr('transform', 'translate('+margin.left+','+(height + margin.top)+')')
+//            hGuide.selectAll('path')
+//                .style('fill', 'none')
+//                .style('stroke', '#000')
+//            hGuide.selectAll('line')
+//                .style('stroke', '#000')
+//
+//} 
+
+/* ******************************* */
+/* D3 JS Double Bar Chart */
+/* ******************************* */
+
 function graphInit(chartLocation, yData, xData) {
 
-    var myData = yData; 
-    var xLabels = xData; 
+ var myData = yData;  
+ var xLabels = xData; 
 
-    var margin = {
-        top: 30, 
-        right: 30, 
-        bottom: 40, 
-        left: 50
-    }
-
-    var height = 500 - margin.top - margin.bottom; 
-    var width = 500 - margin.right - margin.left; 
-    //var barWidth = 35; 
-    //var barOffset = 5; 
-
-    var yScale = d3.scale.linear()
-        .domain([0, d3.max(myData)])
-        .range([0, height]); 
-
-    //var xScale = d3.scale.ordinal()
-    //    .domain(d3.range(0, myData.length))
-    //    .rangeBands([0, width])
-
-    var xScale = d3.scale.ordinal()
-        .domain(d3.range(0, xLabels.length))
-        .rangeBands([0, width], .1)
-
-    d3.select(chartLocation).append('svg')
-        .attr('width', width + margin.right + margin.left)
-        .attr('height', height + margin.top + margin.bottom)
-        .append('g')
-        .attr('transform', 'translate('+margin.left+','+margin.top+')')
-        .style('background', 'f4f4f4')
-        .selectAll('rect')
-            .data(myData)
-            .enter().append('rect')
-                .style('fill', 'lightgreen')
-                .attr('width', xScale.rangeBand())
-                .attr('height', function(d){
-                    return yScale(d); 
-                })
-                .attr('x', function(d, i){
-                    return xScale(i);  
-                })
-                .attr('y', function(d){
-                    return height - yScale(d); 
-                })
-
-    var vScale = d3.scale.linear()
-        .domain([0, d3.max(myData)])
-        .range([height, 0]); 
-
-    //var hScale = d3.scale.ordinal()
-    //    .domain(d3.range(0, myData.length))
-    //    .rangeBands([0, width])
-    //
-    var hScale = d3.scale.ordinal()
-        .domain(d3.range(0, xLabels.length))
-        .rangeBands([0, width])
-
-    // V Axis
-    var vAxis = d3.svg.axis()
-        .scale(vScale)
-        .orient('left')
-        .ticks(5)
-        .tickPadding(5)
-
-    // V Guide
-    var vGuide = d3.select('svg')
-        .append('g')
-            vAxis(vGuide)
-            vGuide.attr('transform', 'translate('+margin.left+','+margin.top+')')
-            vGuide.selectAll('path')
-                .style('fill', 'none')
-                .style('stroke', '#000')
-            vGuide.selectAll('line')
-                .style('stroke', '#000')
-
-    // H Axis
-    //var hAxis = d3.svg.axis()
-    //    .scale(hScale)
-    //    .orient('bottom')
-    //    .tickValues(hScale.domain().filter(function(d, i){
-    //        return !(i % (myData.length/6)); 
-    //    })); 
-
-    var hAxis = d3.svg.axis()
-        .scale(hScale)
-        .orient('bottom')
-        .tickValues(hScale.domain().filter(function(d, i){
+ var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 250 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
+    
+ var x0 = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1)
+    .domain(d3.range(0, xLabels.length));
+    
+ var x1 = d3.scale.ordinal();  
+    
+ var y = d3.scale.linear()
+    .domain([0, d3.max(myData)])
+    .range([height, 0]);
+    
+    
+ var color = d3.scale.ordinal()
+    .range(["#ffcc99", "#ccff99"]);
+    
+    
+ var xAxis = d3.svg.axis()
+    .scale(x0)
+    .orient("bottom") 
+    .tickValues(x0.domain().filter(function(d, i){
             return !(i % (xLabels.length/6)); 
-        })); 
+    })); 
+    
+ var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+//    .tickFormat(d3.format(".2s"));
+    .ticks(5)
+    .tickPadding(5);
+    
+    //console.log(margin.left);
+ var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+    var data = [
+        {letter: "A", frequency: 78,depth:400},
+        {letter: "B", frequency: 567,depth:250}, 
+        {letter:'C', frequency: 387, depth:300},
+        {letter:'D', frequency: 754, depth:568}
+    ];
 
-    // h Guide
-    var hGuide = d3.select('svg')
-        .append('g')
-            hAxis(hGuide)
-            hGuide.attr('transform', 'translate('+margin.left+','+(height + margin.top)+')')
-            hGuide.selectAll('path')
-                .style('fill', 'none')
-                .style('stroke', '#000')
-            hGuide.selectAll('line')
-                .style('stroke', '#000')
+    var groupNames=d3.keys(data[0]).filter(function(key){return key!="letter";})
+    
+    data.forEach(function(d){
+        d.groups=groupNames.map(function(name){return {name:name,value:+d[name]};})
+    });
+    
+    x0.domain(data.map(function(d){return d.letter;}));
+    x1.domain(groupNames).rangeRoundBands([0, x0.rangeBand()]);
+    
+    y.domain([0,d3.max(data,function(d){
+        return d3.max(d.groups,function(d){
+            return d.value;
+        });
+    })]);
+    
+    svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+//  .append("text")
+//    .attr("transform", "rotate(-90)")
+//    .attr("y", 6)
+//    .attr("dy", ".71em")
+//    .style("text-anchor", "end")
+//    .text("Letter Fun");
 
+    var state = svg.selectAll(".state")
+    .data(data)
+    .enter().append("g")
+    .attr("class", "g")
+    .attr("transform", function(d) { return "translate(" + x0(d.letter) + ",0)"; });
+    
+    state.selectAll("rect")
+    .data(function(d) { return d.groups; })
+    .enter().append("rect")
+     .attr("width", x1.rangeBand())
+     .attr("x", function(d) { return x1(d.name); })
+     .attr("y", function(d) { return y(d.value); })
+     .attr("height", function(d) { return height - y(d.value); })
+     .style("fill", function(d) { return color(d.name); });
+    
 }
+
+
+/* ******************************* */
+/* D3 JS Double Bar Chart 2 */
+/* ******************************* */
+
+//var svg = d3.select("svg"),
+//  margin = {
+//    top: 20,
+//    right: 20,
+//    bottom: 30,
+//    left: 40
+//  },
+//  width = ("width") - margin.left - margin.right,
+//  height = ("height") - margin.top - margin.bottom;
+//
+//var color = d3.scaleOrdinal(d3.schemeCategory10);
+//
+//var x = d3.scaleBand().rangeRound([0, width])
+//  .padding(0.1),
+//  y = d3.scaleLinear().rangeRound([height, 0]);
+//
+//var g = svg.append("g")
+//  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//
+//var data = [{
+//  "Group": "Mars",
+//  "count": 10,
+//  "months": "June"
+//}, {
+//  "Group": "Jupiter",
+//  "count": 50,
+//  "months": "June"
+//}, {
+//  "Group": "Mars",
+//  "count": 70,
+//  "months": "July"
+//}, {
+//  "Group": "Jupiter",
+//  "count": 60,
+//  "months": "July"
+//}];
+//
+//var ymaxdomain = d3.max(data, function(d) {
+//  return d.count;
+//});
+//x.domain(data.map(function(d) {
+//  return d.months
+//}));
+//y.domain([0, ymaxdomain]);
+//
+//var x1 = d3.scaleBand()
+//  .rangeRound([0, x.bandwidth()])
+//  .padding(0.05)
+//  .domain(data.map(function(d) {
+//    return d.Group;
+//  }));
+//
+//color.domain(data.map(function(d) {
+//  return d.Group;
+//}));
+//
+//var groups = g.selectAll(null)
+//  .data(data)
+//  .enter()
+//  .append("g")
+//  .attr("transform", function(d) {
+//    return "translate(" + x(d.months) + ",0)";
+//  })
+//
+//var bars = groups.selectAll(null)
+//  .data(function(d) {
+//    return [d]
+//  })
+//  .enter()
+//  .append("rect")
+//  .attr("x", function(d, i) {
+//    return x1(d.Group)
+//  })
+//  .attr("y", function(d) {
+//    return y(d.count);
+//  })
+//  .attr("width", x1.bandwidth())
+//  .attr("height", function(d) {
+//    return height - y(d.count);
+//  })
+//  .attr("fill", function(d) {
+//    return color(d.Group)
+//  })
+//
+//g.append("g")
+//  .attr("class", "axis")
+//  .attr("transform", "translate(0," + height + ")")
+//  .call(d3.axisBottom(x));
+//
+//g.append("g")
+//  .attr("class", "axis")
+//  .call(d3.axisLeft(y).ticks(null, "s"))
+//  .append("text")
+//  .attr("x", 2)
+//  .attr("y", y(y.ticks().pop()) + 0.5)
+//  .attr("dy", "0.32em")
+//  .attr("fill", "#000")
+//  .attr("font-weight", "bold")
+//  .attr("text-anchor", "start")
+//  .text("count");
         
 /* *************************** */
 /* Maps JS */
