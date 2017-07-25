@@ -159,10 +159,11 @@ function gaugeInit(mapTarget, mapGauge) {
 /* D3 JS Double Bar Chart */
 /* ******************************* */
 
-function graphInit(chartLocation, yData, xData) {
+function graphInit(chartLocation, yData, xData1, xData2) {
 
  var myData = yData;  
- var xLabels = xData; 
+ var xLabel1 = xData1;
+ var xLabel2 = xData2; 
 
  var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 250 - margin.left - margin.right,
@@ -170,7 +171,7 @@ function graphInit(chartLocation, yData, xData) {
     
  var x0 = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1)
-    .domain(d3.range(0, xLabels.length));
+    .domain(d3.range(0, xLabel1.length));
     
  var x1 = d3.scale.ordinal();  
     
@@ -185,10 +186,8 @@ function graphInit(chartLocation, yData, xData) {
     
  var xAxis = d3.svg.axis()
     .scale(x0)
-    .orient("bottom") 
-    .tickValues(x0.domain().filter(function(d, i){
-            return !(i % (xLabels.length/6)); 
-    })); 
+    .orient("bottom")
+
     
  var yAxis = d3.svg.axis()
     .scale(y)
@@ -204,11 +203,18 @@ function graphInit(chartLocation, yData, xData) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
+//    var data = [
+//        {letter: "A", frequency: 78,depth:400},
+//        {letter: "B", frequency: 567,depth:250}, 
+//        {letter:'C', frequency: 387, depth:300},
+//        {letter:'D', frequency: 754, depth:568}
+//    ];
+    
     var data = [
-        {letter: "A", frequency: 78,depth:400},
-        {letter: "B", frequency: 567,depth:250}, 
-        {letter:'C', frequency: 387, depth:300},
-        {letter:'D', frequency: 754, depth:568}
+        {letter: xLabel1[0], frequency: xLabel2[0],depth: myData[0]},
+        {letter: xLabel1[1], frequency: xLabel2[1],depth: myData[1]}, 
+        {letter: xLabel1[2], frequency: xLabel2[2], depth: myData[2]},
+        {letter: xLabel1[3], frequency: xLabel2[3], depth: myData[3]}
     ];
 
     var groupNames=d3.keys(data[0]).filter(function(key){return key!="letter";})
@@ -218,6 +224,7 @@ function graphInit(chartLocation, yData, xData) {
     });
     
     x0.domain(data.map(function(d){return d.letter;}));
+    
     x1.domain(groupNames).rangeRoundBands([0, x0.rangeBand()]);
     
     y.domain([0,d3.max(data,function(d){
@@ -250,6 +257,18 @@ function graphInit(chartLocation, yData, xData) {
      .attr("y", function(d) { return y(d.value); })
      .attr("height", function(d) { return height - y(d.value); })
      .style("fill", function(d) { return color(d.name); });
+    
+//X Axis Labeling 
+    var xGuide = d3.select('svg')
+        .append('g')
+            xAxis(xGuide)
+            xGuide.attr('transform', 'translate('+margin.left+','+(height + margin.top)+')')
+            xGuide.selectAll('path')
+                .style('fill', 'none')
+                .style('stroke', '#000')
+            xGuide.selectAll('line')
+                .style('stroke', '#000')
+                
     
 }
 
