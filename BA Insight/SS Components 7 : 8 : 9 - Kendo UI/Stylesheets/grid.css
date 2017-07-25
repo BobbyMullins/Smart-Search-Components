@@ -40,3 +40,9 @@ tr: nth-child(odd) {
     background: white; 
     border: 1px solid white; 
 }*/
+
+/* Filter Menu Formatting */
+
+.k-popup {
+    background-color: white; 
+}
