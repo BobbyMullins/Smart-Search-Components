@@ -396,21 +396,39 @@ function initMap(mapLocation, lat, lng) {
         });
 }
         
-//function initMap() {
-//    //first function (initialize map) 
-//    //var uluru = {lat: -25.363, lng: 131.044};
-//        var map = new google.maps.Map(document.getElementById('map'), {
-//          zoom: 4,
-//          center: uluru
-//        });
-//    
-//    // second function (move map)
-//        var marker = new google.maps.Marker({
-//          position: uluru,
-//          map: map
-//        });
-//      }
 
+/* ******************************** */
+// Kendo JS Grid 1
+/* ******************************** */
 
+function gridInit(gridLocation, columnHeaders, data) {
     
+    for (var i = 0; i<columnHeaders.length; i++) {
+        var field = field; 
+        var title = title; 
+        columns = columnHeaders[i];  
+    }   
+
+    $(document).ready(function(){
+        
+        
+        $(gridLocation).kendoGrid({
+            sortable: true, 
+            pagable: true, 
+            filterable: true, 
+            
+            columns: columnHeaders, 
+            
+            dataSource: data
+            
+        });
+        
+        //formatting for table
+//        $('tr:even').css('background-color', '#ffcc99');
+//        $('tr:odd').css('background-color', 'white'); 
+//        $('tr').css('border', '2px solid white'); 
+        
+    });
+    
+}
 

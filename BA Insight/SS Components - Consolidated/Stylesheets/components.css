@@ -1,3 +1,25 @@
+/* General Styling */
+h2 {
+    color:#A9A9A9;    
+}
+
+
+/* ******************************* */
+/* Sidebar Left Styling */
+/* ******************************* */
+
+.sidebarLeft {
+    margin-right: 10%; 
+    padding-bottom: 20%;
+}
+
+/* Map Styling */
+
+#map {
+    margin-left: 2%; 
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
 /* D3 Graph Styling */
 
 svg {
@@ -20,8 +42,91 @@ svg {
 /* Map Sizing */
 
 #map {
-        width: 25%;
+        width: 250px;
         height: 250px;  
         background-color: grey;
-      }
+}
 
+
+/* ********************************* */
+/* Middle Panel Styling */
+/* ********************************* */
+
+.middle {
+    display: block;  
+    margin-left: 25%;
+    position: absolute; 
+    width: 35%; 
+}
+
+/* Component 6 Sytling */
+
+#component6 {
+    border: 2px solid orange;
+    line-height: .5em;
+    margin-top: 5%;
+    padding-left: 2%; 
+     
+}
+
+/* Kendo Grid Styling */
+
+h2 {   
+    padding-left: 2%; 
+}
+
+#Assets { 
+    border: 2px solid orange;
+    margin-top: 5%;
+    height: 66%;
+    padding-bottom: 2%; 
+    padding-left: 2%; 
+    padding-right: 2%; 
+}
+
+#grid {
+    border: 1px solid white; 
+    padding-bottom: 2%;  
+    
+}
+
+/* Table Formatting */
+
+.k-grid th.k-header, k-grid-header {
+    background-color: orange; 
+    border: 1px solid white; 
+}
+
+a.k-link {
+    color: black; 
+}
+
+td {
+    border: 3px solid white; 
+}
+
+/* ********************************** */
+/* Right Panel Styling */
+/* ********************************** */
+
+.sideBarRight { 
+    position: absolute; 
+    margin-left: 62.5%; 
+    width: 35%; 
+}
+
+#component8 {
+    border: 2px solid orange;
+    margin-top: 5%;
+    padding-bottom: 2%; 
+    padding-left: 2%; 
+    padding-right: 2%;
+}
+
+#component9 {
+    border: 2px solid orange;
+    margin-top: 5%; 
+    padding-bottom: 2%; 
+    padding-left: 2%; 
+    padding-right: 2%;
+}
