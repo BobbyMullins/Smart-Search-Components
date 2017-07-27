@@ -423,11 +423,6 @@ function gridInit(gridLocation, columnHeaders, data) {
             
         });
         
-        //formatting for table
-//        $('tr:even').css('background-color', '#ffcc99');
-//        $('tr:odd').css('background-color', 'white'); 
-//        $('tr').css('border', '2px solid white'); 
-        
     });
     
 }

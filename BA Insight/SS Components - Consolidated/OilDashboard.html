@@ -13,7 +13,7 @@
     <link  rel="stylesheet" href="http://devfederator.azurewebsites.net/modules/DemoCustom/Legal.css"> 
     
     <!-- Component Scripts --> 
-      
+    
     <!-- Gauge JS Script -->
     <script src='Scripts/gauge.min.js' type="text/javascript"></script>
     
@@ -22,16 +22,19 @@
     
     <!-- Kendo CSS -->
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css" />
-    
-    <!-- Kendo Default CSS -->
-    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.default.min.css" />
+      
+    <!-- Kendo Material Common CSS   -->
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+      
+    <!-- Kendo Material CSS --> 
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
     
     <!-- Kendo jQuery Script -->
     <script src="http://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
     
     <!-- Kendo JS -->
     <script src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
-      
+    
     <!-- Custom JS -->
     <script src="Scripts/components.js" type="text/javascript"></script>
       
@@ -163,12 +166,12 @@
     <div class='middle'>
         
         <div id='component6'>
-            <h3>Rig Name: XXXXXXXX</h3>
-            <h3>Location: XXXXXXXX</h3>
-            <h3>GEO Coordinates: XXXXXXXX</h3>
-            <h3>Type: XXXXXXXXX</h3>
-            <h3>Supervisor: XXXXXXXX</h3>
-            <h3>Telephone: XXXXXXXX</h3>
+            <h3>Rig Name: <span class='lighter'>sample data</span></h3>
+            <h3>Location: <span class='lighter'>sample data</span></h3>
+            <h3>GEO Coordinates: <span class='lighter'>sample data</span></h3>
+            <h3>Type: <span class='lighter'>sample data</span></h3>
+            <h3>Supervisor: <span class='lighter'>sample data</span></h3>
+            <h3>Telephone: <span class='lighter'>sample data</span></h3>
         </div>
         
         <!-- Kendo Grid Component -->
@@ -191,12 +194,13 @@
     <div class="sidebarLeft">
         
         <!-- Gauge Component -->
-        
         <h2>Site Safety Goals</h2>
     
         <canvas id="safetyGauge"></canvas>
-    
-        <script>gaugeInit('#safetyGauge', 97)</script>
+
+        <script src='Scripts/components.js' type="text/javascript"></script>
+
+        <script>gaugeInit('safetyGauge', 97)</script>
         
         <!-- Chart Component -->
         <h2>MTBR & MTBM</h2>

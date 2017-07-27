@@ -9,8 +9,18 @@ h2 {
 /* ******************************* */
 
 .sidebarLeft {
+    margin-left: 2%; 
     margin-right: 10%; 
-    padding-bottom: 20%;
+    padding-bottom: 20%; 
+    width: 20%; 
+}
+
+/* Gauge JS Styling */
+
+#safetyGauge {
+    height: 100%; 
+    width: 100%; 
+    margin-left: -10%;  
 }
 
 /* Map Styling */
@@ -59,7 +69,11 @@ svg {
     width: 35%; 
 }
 
-/* Component 6 Sytling */
+.lighter {
+    font-weight: 200; 
+}
+
+/* Component 6 Styling */
 
 #component6 {
     border: 2px solid orange;
@@ -92,17 +106,30 @@ h2 {
 
 /* Table Formatting */
 
+.k-grid {
+    border: none;
+    font-size: .75em; 
+}
+
+.k-icon {
+    color: black !important; 
+}
+
 .k-grid th.k-header, k-grid-header {
-    background-color: orange; 
-    border: 1px solid white; 
+    background-color: #ffcc99; 
+    border: 1px solid white;
 }
 
 a.k-link {
-    color: black; 
+    color: black !important; 
+}
+
+tr:nth-child(odd) {
+    background-color: #ffcc99
 }
 
 td {
-    border: 3px solid white; 
+    border: 1px solid white !important; 
 }
 
 /* ********************************** */
